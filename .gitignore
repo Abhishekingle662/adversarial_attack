@@ -17,7 +17,6 @@ venv.bak/
 # Data, checkpoints & results (large files)
 data/
 checkpoints/
-results/
 
 # Model weights
 *.pt

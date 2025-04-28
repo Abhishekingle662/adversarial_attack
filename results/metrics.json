@@ -1,0 +1,26 @@
+{
+  "thresholds": {
+    "ae_delta": 7.230532028188464e-05,
+    "fs_tau": 0.0005807629320770506
+  },
+  "roc_auc": {
+    "feature_squeeze": 0.9307491525,
+    "autoencoder": 1.0
+  },
+  "average_precision": {
+    "feature_squeeze": 0.9486831090080814,
+    "autoencoder": 1.0
+  },
+  "detection_at_thresholds": {
+    "feature_squeeze": {
+      "FAR_clean": 0.051,
+      "DR_FGSM": 0.5686,
+      "DR_PGD": 0.6153
+    },
+    "autoencoder": {
+      "FAR_clean": 0.047,
+      "DR_FGSM": 1.0,
+      "DR_PGD": 1.0
+    }
+  }
+}
