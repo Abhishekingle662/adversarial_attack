@@ -356,3 +356,72 @@ Scoring AutoencoderDetector: 100%|███████████████�
 Scoring AutoencoderDetector: 100%|██████████████████████████████| 40/40 [00:08<00:00,  4.50it/s]
 Scoring AutoencoderDetector: 100%|██████████████████████████████| 40/40 [00:09<00:00,  4.38it/s]
 ✅ Saved ROC & PR plots and metrics in results/
+
+
+
+
+
+
+# visualize.py
+
+ python .\visualize.py
+.\visualize.py:73: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  X_fgsm, Y_fgsm = torch.load("checkpoints/adv_fgsm.pt")
+.\visualize.py:89: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load("checkpoints/autoencoder.pth", map_location=device)
+Traceback (most recent call last):
+  File ".\visualize.py", line 124, in <module>
+    main()
+  File ".\visualize.py", line 94, in main
+    scores_fs = fs_detector.score(X_fgsm)
+  File ".\visualize.py", line 22, in score
+    p = F.softmax(self.model(x), dim=-1)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ".\visualize.py", line 50, in forward
+    return self.m(pixel_values=x).logits
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\transformers\models\vit\modeling_vit.py", line 856, in forward
+    outputs = self.vit(
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\transformers\models\vit\modeling_vit.py", line 639, in forward
+    encoder_outputs = self.encoder(
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\transformers\models\vit\modeling_vit.py", line 468, in forward
+    layer_outputs = layer_module(hidden_states, layer_head_mask, output_attentions)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\transformers\models\vit\modeling_vit.py", line 413, in forward
+    self_attention_outputs = self.attention(
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\transformers\models\vit\modeling_vit.py", line 343, in forward
+    self_outputs = self.attention(hidden_states, head_mask, output_attentions)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\transformers\models\vit\modeling_vit.py", line 271, in forward
+    mixed_query_layer = self.query(hidden_states)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Abhis\.conda\envs\torch_gpu_env\lib\site-packages\torch\nn\modules\linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 5.64 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 22.81 GiB is allocated by PyTorch, and 1.90 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
