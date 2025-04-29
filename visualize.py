@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from torchvision.datasets import MNIST
 from torchvision.transforms import Compose, Resize, Grayscale, ToTensor, Normalize
 from transformers import ViTForImageClassification
+import random
 
 # Detector & wrapper (as before)...
 class FeatureSqueezeDetector(nn.Module):
@@ -51,7 +52,7 @@ def main():
     X_fgsm, Y_fgsm = torch.load("checkpoints/adv_fgsm.pt", map_location="cpu")
 
     # 3) Choose your handful of examples (first 5 here)
-    sel = list(range(5))  # or random.sample(range(len(X_fgsm)), 5)
+    sel =  random.sample(range(len(X_fgsm)), 5) # list(range(5)) 
 
     # 4) Move just those to GPU
     X_sel = X_fgsm[sel].to(device)
@@ -96,7 +97,7 @@ def main():
         axes[i,1].axis("off")
 
     plt.tight_layout()
-    out = "results/detections.png"
+    out = "results/detections_random.png"
     plt.savefig(out)
     print(f"✅ Visualization saved to {out}")
 
