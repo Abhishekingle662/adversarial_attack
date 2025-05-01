@@ -68,6 +68,7 @@ against adversarial MNIST examples crafted on a pre-trained ViT model.
    ```powershell
    python visualize.py
    ```
+![My Device Configuration](device_configuration.png)
 
 ## Output
 
